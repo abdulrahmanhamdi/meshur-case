@@ -117,6 +117,22 @@ npm run build
 | **Parallel Fetching** | `Promise.all` for `getDictionary` + `getProducts` | Reduced Time to First Byte (TTFB) |
 | **Data Mapping** | Decoupled transformation layer (service mapping) | UI remains pure and backend-agnostic |
 
+## Testing Strategy 
+
+To ensure the reliability and stability of the platform, I implemented a comprehensive testing suite focusing on core business logic and critical UI components:
+
+### 1. Unit Testing (Business Logic)
+- **Service Layer**: Verified that the `ProductService` correctly maps raw JSON data into flattened UI models.
+- **State Management**: Tested **Zustand** store actions (Favorites) to ensure state consistency and $O(1)$ performance metrics.
+
+### 2. Integration & UI Testing
+- **Component Integrity**: Used **React Testing Library** to verify that critical components like `ProductCard` and `Navbar` render correctly across different locales.
+- **Theme Consistency**: Ensured that the "Pitch Black" mode class is correctly applied during theme transitions.
+
+```bash
+# To run the test suite
+npm test
+
 ## Important Note for Reviewers
 
 This project follows a **scale-first** philosophy.  
