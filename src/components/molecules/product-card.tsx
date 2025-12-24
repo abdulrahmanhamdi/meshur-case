@@ -16,7 +16,6 @@ interface ProductCardProps {
   };
 }
 
-// أضفنا dict هنا بجانب product
 export const ProductCard = ({ product, dict }: ProductCardProps) => {
   const { favorites, toggleFavorite } = useFavoriteStore();
   const isFavorite = favorites.includes(product.id.toString());
@@ -52,7 +51,6 @@ export const ProductCard = ({ product, dict }: ProductCardProps) => {
           fill
           className="object-cover transition-transform duration-300 group-hover:scale-105"
         />
-        {/* استبدلنا VERIL الثابتة بـ dict.verilTag */}
         <div className="absolute bottom-2 left-2 rounded bg-green-100 px-1.5 py-0.5 text-[10px] font-bold text-green-700 dark:bg-green-900 dark:text-green-100">
           {dict.verilTag}
         </div>
@@ -73,7 +71,7 @@ export const ProductCard = ({ product, dict }: ProductCardProps) => {
           <Button 
             size="icon" 
             variant="outline"
-            title={dict.addToCart} // أضفنا النص هنا أيضاً
+            title={dict.addToCart} 
             className="h-8 w-8 rounded-full border-gray-200 hover:border-red-600 hover:text-red-600 dark:border-gray-700"
           >
             <ShoppingCart size={16} />
