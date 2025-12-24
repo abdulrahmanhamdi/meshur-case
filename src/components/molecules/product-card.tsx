@@ -6,17 +6,21 @@ import { Heart, ShoppingCart } from "lucide-react";
 import { Product } from "@/types/product";
 import { useFavoriteStore } from "@/store/useFavoriteStore";
 import { Button } from "@/components/atoms/button";
-import { cn } from "@/util/cn";
+import { cn } from "@/util/cn"; 
 
 interface ProductCardProps {
   product: Product;
+  dict: {
+    addToCart: string;
+    verilTag: string;
+  };
 }
 
-export const ProductCard = ({ product }: ProductCardProps) => {
+// أضفنا dict هنا بجانب product
+export const ProductCard = ({ product, dict }: ProductCardProps) => {
   const { favorites, toggleFavorite } = useFavoriteStore();
   const isFavorite = favorites.includes(product.id.toString());
 
-  // Take the first variant to display the default price
   const defaultVariant = product.variants[0];
 
   return (
@@ -48,13 +52,12 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           fill
           className="object-cover transition-transform duration-300 group-hover:scale-105"
         />
-        {/* Green "Veril" badge as shown in the design */}
+        {/* استبدلنا VERIL الثابتة بـ dict.verilTag */}
         <div className="absolute bottom-2 left-2 rounded bg-green-100 px-1.5 py-0.5 text-[10px] font-bold text-green-700 dark:bg-green-900 dark:text-green-100">
-          VERIL
+          {dict.verilTag}
         </div>
       </div>
 
-      {/* Product details */}
       <div className="mt-3 flex flex-1 flex-col">
         <h3 className="line-clamp-2 text-sm font-medium text-gray-800 dark:text-gray-200">
           {product.name}
@@ -70,6 +73,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           <Button 
             size="icon" 
             variant="outline"
+            title={dict.addToCart} // أضفنا النص هنا أيضاً
             className="h-8 w-8 rounded-full border-gray-200 hover:border-red-600 hover:text-red-600 dark:border-gray-700"
           >
             <ShoppingCart size={16} />

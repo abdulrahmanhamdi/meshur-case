@@ -1,10 +1,18 @@
 import { ShieldCheck, CreditCard, Truck } from "lucide-react";
 
-export const TrustBar = () => {
+interface TrustBarProps {
+  dict: {
+    privacy: string;
+    payments: string;
+    delivery: string;
+  };
+}
+
+export const TrustBar = ({ dict }: TrustBarProps) => {
   const items = [
-    { icon: <ShieldCheck size={20} />, text: "Güvenlik Gizlilik" },
-    { icon: <CreditCard size={20} />, text: "Güvenli Ödemeler" },
-    { icon: <Truck size={20} />, text: "Teslimat Garantisi" },
+    { icon: <ShieldCheck size={20} />, text: dict.privacy },  
+    { icon: <CreditCard size={20} />, text: dict.payments },
+    { icon: <Truck size={20} />, text: dict.delivery },      
   ];
 
   return (

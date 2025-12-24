@@ -1,4 +1,31 @@
 {
-  "navigation": { "home": "Anasayfa", "favorites": "Favoriler" },
-  "welcome": "Pazaryerine Hoş Geldiniz"
+  "navigation": {
+    "home": "Anasayfa",
+    "favorites": "Favoriler",
+    "categories": "Kategoriler",
+    "searchPlaceholder": "Meşhur'da ara...",
+    "login": "Oturum aç/Kaydol",
+    "orders": "Siparişler ve Hesap",
+    "support": "Destek",
+    "language": "Türkçe"
+  },
+  "home": {
+    "categories": ["Tümü", "Elektronik", "Ev & Mobilya", "Kadın", "Kozmetik", "Spor & Outdoor", "Ayakkabı & Çanta", "Erkek", "Süper Market"],
+    "discoverTitle": "MEŞHUR'DA KEŞFET"
+  },
+  "hero": {
+    "title": "YILBAŞI PROMO KODLARI",
+    "subtitle": "Daha az harca, daha çok gülümse!",
+    "button": "ALIŞVERİŞE BAŞLA"
+  },
+  "trustBar": {
+    "privacy": "Güvenlik Gizlilik",
+    "payments": "Güvenli Ödemeler",
+    "delivery": "Teslimat Garantisi",
+    "why": "Neden Meşhur?"
+  },
+  "productCard": {
+    "addToCart": "Sepete Ekle",
+    "verilTag": "VERIL"
+  }
 }

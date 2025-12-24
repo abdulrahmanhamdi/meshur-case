@@ -1,4 +1,31 @@
 {
-  "navigation": { "home": "Home", "favorites": "Favorites" },
-  "welcome": "Welcome to Marketplace"
+  "navigation": {
+    "home": "Home",
+    "favorites": "Favorites",
+    "categories": "Categories",
+    "searchPlaceholder": "Search on Meşhur...",
+    "login": "Login/Sign Up",
+    "orders": "Orders & Account",
+    "support": "Support",
+    "language": "English"
+  },
+  "home": {
+    "categories": ["All", "Electronics", "Home & Furniture", "Women", "Cosmetics", "Sports", "Shoes", "Men", "Super Market"],
+    "discoverTitle": "Discover on Meşhur"
+  },
+  "hero": {
+    "title": "NEW YEAR PROMO CODES",
+    "subtitle": "Spend less, smile more!",
+    "button": "START SHOPPING"
+  },
+  "trustBar": {
+    "privacy": "Security & Privacy",
+    "payments": "Secure Payments",
+    "delivery": "Delivery Guarantee",
+    "why": "Why Meşhur?"
+  },
+  "productCard": {
+    "addToCart": "Add to Cart",
+    "verilTag": "VERIL"
+  }
 }
