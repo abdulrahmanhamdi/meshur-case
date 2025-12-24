@@ -1,0 +1,49 @@
+[
+  {
+    "id": 101,
+    "name": "Mehmet Efendi Türk Kahvesi",
+    "slug": "mehmet-efendi-turk-kahvesi",
+    "description": "Geleneksel yöntemlerle kavrulmuş taze Türk kahvesi.",
+    "parentCategoryId": 1,
+    "brandId": 10,
+    "variants": [
+      {
+        "id": 1001,
+        "price": 85.50,
+        "stock": 50,
+        "barcode": "86905550011",
+        "sku": "KAHVE-100G",
+        "thumbnailIds": [201, 202],
+        "options": [{ "title": "Gramaj", "value": "100g" }]
+      },
+      {
+        "id": 1002,
+        "price": 160.00,
+        "stock": 30,
+        "barcode": "86905550012",
+        "sku": "KAHVE-250G",
+        "thumbnailIds": [203],
+        "options": [{ "title": "Gramaj", "value": "250g" }]
+      }
+    ]
+  },
+  {
+    "id": 102,
+    "name": "Hafiz Mustafa Fıstıklı Baklava",
+    "slug": "hafiz-mustafa-fistikli-baklava",
+    "description": "Özel Antep fıstığı ile hazırlanmış çıtır baklava.",
+    "parentCategoryId": 2,
+    "brandId": 12,
+    "variants": [
+      {
+        "id": 2001,
+        "price": 450.00,
+        "stock": 15,
+        "barcode": "86905550021",
+        "sku": "BAK-1KG",
+        "thumbnailIds": [301],
+        "options": [{ "title": "Ağırlık", "value": "1kg" }]
+      }
+    ]
+  }
+]
