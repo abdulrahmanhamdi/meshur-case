@@ -1,23 +1,34 @@
-import Link from 'next/link'
-import { getDictionary } from '@/i18n/get-dictionary'
+"use client"; 
 
-export default async function NotFound({ params }: { params: { locale: string } }) {
-  const { locale } = await params;
-  const dict = await getDictionary(locale); // جلب النصوص بناءً على اللغة
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import { getDictionary } from "@/i18n/get-dictionary"; 
+
+export default function NotFound() {
+  const pathname = usePathname();
+  const [dict, setDict] = useState<any>(null);
+
+  const locale = pathname.split("/")[1] || "tr"; 
+
+  useEffect(() => {
+    async function loadDict() {
+      const data = await getDictionary(locale as any);
+      setDict(data);
+    }
+    loadDict();
+  }, [locale]);
+
+  if (!dict) return null; 
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-[60vh] text-center px-4">
-      <h1 className="text-6xl font-black text-red-600">404</h1>
-      <h2 className="text-2xl font-bold mt-4 dark:text-white">{dict.errors.notFoundTitle}</h2>
-      <p className="text-gray-600 dark:text-gray-400 mt-2 max-w-md">
-        {dict.errors.notFoundDescription}
+    <div className="flex flex-col items-center justify-center min-h-[60vh] text-center">
+      <h1 className="text-4xl font-black text-gray-900 dark:text-white">404</h1>
+      <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
+        {dict.errors?.notFound || "Page Not Found"}
       </p>
-      <Link 
-        href={`/${locale}`}
-        className="mt-6 px-6 py-3 bg-red-600 text-white rounded-full font-bold hover:bg-red-700 transition-colors"
-      >
-        {dict.errors.backToHome}
-      </Link>
+ؤ      <a href={`/${locale}`} className="mt-6 text-red-600 font-bold hover:underline">
+        {dict.common?.backToHome || "Go Back Home"}
+      </a>
     </div>
-  )
+  );
 }
