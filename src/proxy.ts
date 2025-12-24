@@ -1,16 +1,17 @@
+// src/proxy.ts
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 const locales = ['tr', 'en']
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl
   
   const pathnameHasLocale = locales.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   )
 
-  if (pathnameHasLocale) return
+  if (pathnameHasLocale) return NextResponse.next()
 
   request.nextUrl.pathname = `/tr${pathname}`
   return NextResponse.redirect(request.nextUrl)

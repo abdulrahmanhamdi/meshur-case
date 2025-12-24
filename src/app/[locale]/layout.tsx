@@ -9,6 +9,7 @@ import { getDictionary } from "@/i18n/get-dictionary";
 const inter = Inter({ subsets: ["latin", "latin-ext"] });
 
 export const metadata = {
+  metadataBase: new URL('https://meshur.co'),
   title: "Meşhur Pazaryeri",
   description: "Frontend Test Case",
 };
