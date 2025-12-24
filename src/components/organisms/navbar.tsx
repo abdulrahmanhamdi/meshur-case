@@ -5,7 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { Search, User, Globe, ShoppingCart, Menu } from "lucide-react";
 import { Button } from "@/components/atoms/button";
 import { ThemeToggle } from "./theme-toggle";
-
+import { Dictionary } from "@/i18n/get-dictionary";
 
 interface NavbarProps {
   locale: string;
@@ -28,7 +28,6 @@ export const Navbar = ({ locale, dict }: NavbarProps) => {
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between gap-4">
           
-          {/* 1. Branding & Categories - تم توضيح تباين النص */}
           <div className="flex items-center gap-6">
             <Link href={`/${locale}`} className="text-2xl font-black tracking-tighter text-red-600">
               MEŞHUR
@@ -42,7 +41,6 @@ export const Navbar = ({ locale, dict }: NavbarProps) => {
             </Button>
           </div>
 
-          {/* 2. Search Engine - تم تحديث ألوان النص والخلفية لضمان الرؤية */}
           <div className="relative hidden max-w-xl flex-1 md:block">
             <input
               type="text"
@@ -54,12 +52,10 @@ export const Navbar = ({ locale, dict }: NavbarProps) => {
             </button>
           </div>
 
-          {/* 3. Utilities & Actions - تم فرض الألوان الصريحة للنصوص والأيقونات */}
           <div className="flex items-center gap-2 lg:gap-5">
             
             <ThemeToggle />
 
-            {/* Language Switcher مع تحسين التباين */}
             <button 
               onClick={() => handleLanguageChange(locale === "tr" ? "en" : "tr")}
               className="flex items-center gap-1.5 text-[12px] font-bold uppercase transition-colors text-gray-900 dark:text-gray-300 hover:text-red-600 dark:hover:text-white"
@@ -68,7 +64,6 @@ export const Navbar = ({ locale, dict }: NavbarProps) => {
               <span className="hidden sm:inline">{dict.navigation.language}</span>
             </button>
 
-            {/* User Profile - تم تحسين تباين النصوص الفرعية */}
             <div className="hidden items-center gap-2 text-[12px] lg:flex">
               <div className="rounded-full bg-gray-100 p-2 dark:bg-gray-800 text-gray-900 dark:text-white">
                 <User size={20} />

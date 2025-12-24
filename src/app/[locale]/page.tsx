@@ -68,13 +68,10 @@ export default async function HomePage({ params }: { params: { locale: string } 
               key={category}
               className="whitespace-nowrap rounded-full border px-6 py-2 text-sm font-bold 
                         transition-all duration-200
-                        /* 1. الوضع الفاتح: نص أسود صريح على خلفية بيضاء بحدود رمادية */
                         bg-white border-gray-300 text-gray-900 
                         
-                        /* 2. الوضع الداكن: نص أبيض صريح على خلفية رمادية غامقة (ليبرز عن خلفية الصفحة) */
                         dark:bg-gray-800 dark:border-gray-700 dark:text-white
                         
-                        /* 3. تأثيرات التفاعل: تغيير لون الحدود والنص عند التمرير */
                         hover:bg-gray-50 dark:hover:bg-gray-700 
                         hover:border-red-500 hover:text-red-600
                         active:scale-95"
