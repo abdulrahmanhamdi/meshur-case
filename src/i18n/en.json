@@ -27,5 +27,21 @@
   "productCard": {
     "addToCart": "Add to Cart",
     "verilTag": "VERIL"
+  },
+  "footer": {
+    "companyInfo": "Company Information",
+    "aboutUs": "About Us",
+    "careers": "Careers",
+    "treeProgram": "Tree Planting Program",
+    "customerService": "Customer Service",
+    "refundPolicy": "Refund Policy",
+    "shippingInfo": "Shipping Information",
+    "reportSuspicious": "Report Suspicious Activity",
+    "help": "Help",
+    "supportCenter": "Support Center",
+    "securityCenter": "Security Center",
+    "salesContract": "Sales Contract",
+    "downloadApp": "Download the App",
+    "allRightsReserved": "All Rights Reserved."
   }
 }

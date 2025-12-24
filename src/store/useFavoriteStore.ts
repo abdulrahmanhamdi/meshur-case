@@ -1,23 +1,37 @@
-// src/store/useFavoriteStore.ts
 import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
+import { persist, createJSONStorage } from 'zustand/middleware';
 
 interface FavoriteState {
   favorites: string[];
-  toggleFavorite: (productId: string) => void;
+  
+  toggleFavorite: (id: string) => void;
+  clearFavorites: () => void;
+  isFavorite: (id: string) => boolean;
 }
 
 export const useFavoriteStore = create<FavoriteState>()(
   persist(
-    (set) => ({
+    (set, get) => ({
       favorites: [],
-      toggleFavorite: (id) =>
-        set((state) => ({
-          favorites: state.favorites.includes(id)
-            ? state.favorites.filter((favId) => favId !== id)
-            : [...state.favorites, id],
-        })),
+
+      toggleFavorite: (id) => {
+        const currentFavorites = get().favorites;
+        const isFav = currentFavorites.includes(id);
+        
+        set({
+          favorites: isFav 
+            ? currentFavorites.filter((favId) => favId !== id) 
+            : [...currentFavorites, id]
+        });
+      },
+
+      clearFavorites: () => set({ favorites: [] }),
+
+      isFavorite: (id) => get().favorites.includes(id),
     }),
-    { name: 'favorites-storage' }
+    {
+      name: 'meshur-favorites', 
+      storage: createJSONStorage(() => localStorage),
+    }
   )
 );

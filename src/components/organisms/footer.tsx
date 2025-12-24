@@ -1,77 +1,78 @@
 import Link from "next/link";
 import { Instagram, Facebook, Twitter, Youtube } from "lucide-react";
 
-export const Footer = () => {
+interface FooterProps {
+  dict: any;
+}
+
+export const Footer = ({ dict }: FooterProps) => {
   return (
-    <footer className="bg-white pt-12 dark:bg-gray-950 border-t">
+    <footer className="border-t bg-white pt-12 dark:bg-gray-950">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-4 lg:grid-cols-5">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-4 lg:grid-cols-5 text-left">
           
           {/* Column 1: Company Information */}
           <div>
-            <h4 className="mb-4 font-bold uppercase text-sm">Şirket Bilgileri</h4>
-            <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-              <li><Link href="#">Hakkımızda</Link></li>
-              <li><Link href="#">Kariyer</Link></li>
-              <li><Link href="#">Basın</Link></li>
-              <li><Link href="#" className="text-red-600 font-bold">Meşhur'un Ağaç Dikme Programı</Link></li>
+            <h4 className="mb-4 text-sm font-bold uppercase">{dict?.footer?.companyInfo || "Company Info"}</h4>
+            <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400 font-medium">
+              <li><Link href="#" className="hover:text-red-600 transition-colors">{dict.footer.aboutUs}</Link></li>
+              <li><Link href="#" className="hover:text-red-600 transition-colors">{dict.footer.careers}</Link></li>
+              <li><Link href="#" className="font-bold text-red-600 hover:opacity-80 transition-opacity">{dict.footer.treeProgram}</Link></li>
             </ul>
           </div>
 
           {/* Column 2: Customer Service */}
           <div>
-            <h4 className="mb-4 font-bold uppercase text-sm">Müşteri Hizmetleri</h4>
-            <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-              <li><Link href="#">İade Politikası</Link></li>
-              <li><Link href="#">Nakliyat Bilgileri</Link></li>
-              <li><Link href="#" className="text-red-600 italic">Şüpheli Faaliyetleri Bildirin</Link></li>
+            <h4 className="mb-4 text-sm font-bold uppercase">{dict.footer.customerService}</h4>
+            <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400 font-medium">
+              <li><Link href="#" className="hover:text-red-600 transition-colors">{dict.footer.refundPolicy}</Link></li>
+              <li><Link href="#" className="hover:text-red-600 transition-colors">{dict.footer.shippingInfo}</Link></li>
+              <li><Link href="#" className="hover:text-red-600 italic text-red-500 transition-colors">{dict.footer.reportSuspicious}</Link></li>
             </ul>
           </div>
 
           {/* Column 3: Help & Support */}
           <div>
-            <h4 className="mb-4 font-bold uppercase text-sm">Yardım</h4>
-            <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-              <li><Link href="#">Destek Merkezi</Link></li>
-              <li><Link href="#">Güvenlik Merkezi</Link></li>
-              <li><Link href="#">Mesafeli Satış Sözleşmesi</Link></li>
+            <h4 className="mb-4 text-sm font-bold uppercase">{dict.footer.help}</h4>
+            <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400 font-medium">
+              <li><Link href="#" className="hover:text-red-600 transition-colors">{dict.footer.supportCenter}</Link></li>
+              <li><Link href="#" className="hover:text-red-600 transition-colors">{dict.footer.securityCenter}</Link></li>
+              <li><Link href="#" className="hover:text-red-600 transition-colors">{dict.footer.salesContract}</Link></li>
             </ul>
           </div>
 
-          {/* Column 4: App Downloads & Social Media */}
+          {/* Column 4: App Downloads & Social Engagement */}
           <div className="md:col-span-1 lg:col-span-2">
-            <div className="rounded-lg bg-gray-100 p-6 dark:bg-gray-900">
-              <h4 className="mb-4 font-bold text-center md:text-left">Meşhur Uygulamasını İndir</h4>
-              
-              <div className="flex flex-col gap-4 sm:flex-row justify-center md:justify-start">
-                <Link href="#" className="flex items-center gap-2 rounded-lg bg-black px-4 py-2 text-white transition-opacity hover:opacity-80">
-                  <div className="flex flex-col leading-none">
-                    <span className="text-[10px]">İndirin</span>
-                    <span className="text-sm font-bold">App Store</span>
+            <div className="rounded-xl bg-gray-50 p-6 dark:bg-gray-900 border border-gray-100 dark:border-gray-800">
+              <h4 className="mb-4 font-bold text-gray-900 dark:text-white">{dict.footer.downloadApp}</h4>
+              <div className="flex flex-col gap-4 sm:flex-row">
+                <Link href="#" className="flex items-center gap-2 rounded-lg bg-black px-4 py-2 text-white hover:bg-gray-800 transition-colors">
+                  <div className="flex flex-col">
+                    <span className="text-[10px] leading-none opacity-70">Download on</span>
+                    <span className="text-sm font-bold leading-tight">App Store</span>
                   </div>
                 </Link>
-                
-                <Link href="#" className="flex items-center gap-2 rounded-lg bg-black px-4 py-2 text-white transition-opacity hover:opacity-80">
-                  <div className="flex flex-col leading-none">
-                    <span className="text-[10px]">İndirin</span>
-                    <span className="text-sm font-bold">Google Play</span>
+                <Link href="#" className="flex items-center gap-2 rounded-lg bg-black px-4 py-2 text-white hover:bg-gray-800 transition-colors">
+                  <div className="flex flex-col">
+                    <span className="text-[10px] leading-none opacity-70">Get it on</span>
+                    <span className="text-sm font-bold leading-tight">Google Play</span>
                   </div>
                 </Link>
               </div>
               
-              <div className="mt-6 flex justify-center md:justify-start gap-4 text-gray-600 dark:text-gray-400">
-                <Instagram size={20} className="cursor-pointer hover:text-red-600 transition-colors" /> 
-                <Facebook size={20} className="cursor-pointer hover:text-red-600 transition-colors" /> 
-                <Twitter size={20} className="cursor-pointer hover:text-red-600 transition-colors" /> 
-                <Youtube size={20} className="cursor-pointer hover:text-red-600 transition-colors" />
+              <div className="mt-6 flex gap-5 text-gray-500">
+                <Instagram size={20} className="hover:text-red-600 cursor-pointer transition-colors" />
+                <Facebook size={20} className="hover:text-blue-600 cursor-pointer transition-colors" />
+                <Twitter size={20} className="hover:text-black cursor-pointer transition-colors" />
+                <Youtube size={20} className="hover:text-red-700 cursor-pointer transition-colors" />
               </div>
             </div>
           </div>
         </div>
         
-        {/* Bottom Footer: Copyright */}
-        <div className="mt-12 border-t py-6 text-center text-xs text-gray-500">
-          © 2025 Meşhur Pazaryeri. Tüm Hakları Saklıdır.
+        {/* Copyright Section */}
+        <div className="mt-12 border-t py-8 text-center text-[11px] font-medium text-gray-400 uppercase tracking-widest">
+          © 2025 Meşhur Pazaryeri. {dict.footer.allRightsReserved}
         </div>
       </div>
     </footer>

@@ -37,7 +37,7 @@ export default async function RootLayout({
           <main className="min-h-screen bg-gray-50 dark:bg-gray-950">
             {children}
           </main>
-          <Footer />
+          <Footer dict={dict} />
         </ThemeProvider>
       </body>
     </html>

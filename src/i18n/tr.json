@@ -27,5 +27,21 @@
   "productCard": {
     "addToCart": "Sepete Ekle",
     "verilTag": "VERIL"
+  },
+  "footer": {
+    "companyInfo": "Şirket Bilgileri",
+    "aboutUs": "Hakkımızda",
+    "careers": "Kariyer",
+    "treeProgram": "Ağaç Dikme Programı",
+    "customerService": "Müşteri Hizmetleri",
+    "refundPolicy": "İade Politikası",
+    "shippingInfo": "Nakliyat Bilgileri",
+    "reportSuspicious": "Şüpheli Faaliyet Bildir",
+    "help": "Yardım",
+    "supportCenter": "Destek Merkezi",
+    "securityCenter": "Güvenlik Merkezi",
+    "salesContract": "Satış Sözleşmesi",
+    "downloadApp": "Uygulamayı İndir",
+    "allRightsReserved": "Tüm Hakları Saklıdır."
   }
 }
