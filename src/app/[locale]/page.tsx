@@ -6,7 +6,7 @@ import { getDictionary } from "@/i18n/get-dictionary";
 
 /**
  * 1. Dynamic Metadata Generation
- * يضمن ظهور عنوان الوصف واللغة بشكل صحيح في محركات البحث بناءً على اللغة المختارة.
+ * Optimizes SEO by rendering dynamic title, description, and hreflang based on the locale.
  */
 export async function generateMetadata({ params }: { params: { locale: string } }) {
   const { locale } = await params;
@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: { params: { locale: string } 
         'en-US': '/en',
       },
     },
-    metadataBase: new URL('https://meshur.co'), // حل تحذير metadataBase الذي ظهر سابقاً
+    metadataBase: new URL('https://meshur.co'),
   };
 }
 
@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: { params: { locale: string } 
 export default async function HomePage({ params }: { params: { locale: string } }) {
   const { locale } = await params;
   
-  // جلب القاموس والمنتجات بشكل متوازي لتحسين الأداء
+  // Parallel data fetching for dictionary and products to improve performance
   const [dict, products] = await Promise.all([
     getDictionary(locale as "en" | "tr"),
     ProductService.getProducts()
@@ -40,7 +40,7 @@ export default async function HomePage({ params }: { params: { locale: string } 
 
   return (
     <div className="flex flex-col gap-6">
-      {/* البيانات المهيكلة (JSON-LD) لتعزيز السيو التقني */}
+      {/* Structured Data (JSON-LD) for Technical SEO */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -53,15 +53,15 @@ export default async function HomePage({ params }: { params: { locale: string } 
         }}
       />
 
-      {/* 1. Hero Section - نمرر نصوص القاموس كمقترح برمجي سليم */}
+      {/* Hero Section */}
       <Hero dict={dict.hero} />
 
-      {/* 2. Trust Bar - الشريط الأخضر */}
+      {/* Trust Bar Section */}
       <TrustBar dict={dict.trustBar} />
 
       <div className="container mx-auto px-4 pb-20">
         
-        {/* 3. Categories Bar - جلب التصنيفات من القاموس مباشرة [i18n Fix] */}
+        {/* Categories Navigation Bar */}
         <div className="my-8 flex gap-3 overflow-x-auto pb-4 no-scrollbar">
           {dict.home.categories.map((category: string) => (
             <button
@@ -73,21 +73,20 @@ export default async function HomePage({ params }: { params: { locale: string } 
           ))}
         </div>
 
-        {/* 4. Product Grid Heading - مترجم بالكامل */}
+        {/* Product Grid Heading */}
         <div className="mb-10 text-center">
           <h2 className="text-2xl font-extrabold uppercase tracking-widest text-gray-900 dark:text-white">
             {dict.home.discoverTitle}
           </h2>
-          <div className="mx-auto mt-2 h-1 w-20 bg-red-600"></div> {/* خط جمالي تحت العنوان */}
+          <div className="mx-auto mt-2 h-1 w-20 bg-red-600"></div>
         </div>
 
-        {/* 5. شبكة المنتجات */}
+        {/* Products Grid */}
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
           {products.map((product) => (
             <ProductCard 
               key={product.id} 
               product={product} 
-              // نمرر نصوص الأزرار والمفاهيم المترجمة للبطاقة
               dict={dict.productCard} 
             />
           ))}
