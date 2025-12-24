@@ -1,15 +1,23 @@
-import Link from 'next/link';
-import { Button } from '@/components/atoms/button';
+import Link from 'next/link'
+import { getDictionary } from '@/i18n/get-dictionary'
 
-export default function NotFound() {
+export default async function NotFound({ params }: { params: { locale: string } }) {
+  const { locale } = await params;
+  const dict = await getDictionary(locale); // جلب النصوص بناءً على اللغة
+
   return (
-    <div className="flex min-h-[60vh] flex-col items-center justify-center text-center">
-      <h1 className="text-9xl font-black text-gray-200 dark:text-gray-800">404</h1>
-      <p className="mt-4 text-xl font-bold">Aradığınız sayfa bulunamadı!</p>
-      <p className="mt-2 text-gray-500">Üzgünüz, aradığınız içerik silinmiş veya taşınmış olabilir.</p>
-      <Link href="/" className="mt-8">
-        <Button variant="primary">Anasayfaya Dön</Button>
+    <div className="flex flex-col items-center justify-center min-h-[60vh] text-center px-4">
+      <h1 className="text-6xl font-black text-red-600">404</h1>
+      <h2 className="text-2xl font-bold mt-4 dark:text-white">{dict.errors.notFoundTitle}</h2>
+      <p className="text-gray-600 dark:text-gray-400 mt-2 max-w-md">
+        {dict.errors.notFoundDescription}
+      </p>
+      <Link 
+        href={`/${locale}`}
+        className="mt-6 px-6 py-3 bg-red-600 text-white rounded-full font-bold hover:bg-red-700 transition-colors"
+      >
+        {dict.errors.backToHome}
       </Link>
     </div>
-  );
+  )
 }

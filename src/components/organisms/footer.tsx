@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { Instagram, Facebook, Twitter, Youtube } from "lucide-react";
+import { Dictionary } from "@/i18n/get-dictionary";
 
 interface FooterProps {
-  dict: any;
+  dict: Dictionary;
 }
 
 export const Footer = ({ dict }: FooterProps) => {

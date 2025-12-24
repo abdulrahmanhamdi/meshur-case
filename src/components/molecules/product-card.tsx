@@ -7,18 +7,16 @@ import { Product } from "@/types/product";
 import { useFavoriteStore } from "@/store/useFavoriteStore";
 import { Button } from "@/components/atoms/button";
 import { cn } from "@/util/cn"; 
+import { Dictionary } from "@/i18n/get-dictionary";
 
 interface ProductCardProps {
   product: Product;
-  dict: {
-    addToCart: string;
-    verilTag: string;
-  };
+  dict: Dictionary['productCard'];
 }
 
 export const ProductCard = ({ product, dict }: ProductCardProps) => {
   const { favorites, toggleFavorite } = useFavoriteStore();
-  const isFavorite = favorites.includes(product.id.toString());
+  const isFavorite = !!favorites[product.id.toString()];
 
   const defaultVariant = product.variants[0];
 
@@ -32,6 +30,7 @@ export const ProductCard = ({ product, dict }: ProductCardProps) => {
       {/* Favorite button */}
       <button
         onClick={() => toggleFavorite(product.id.toString())}
+        aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
         className="absolute right-4 top-4 z-10 rounded-full bg-white/80 p-2 shadow-sm backdrop-blur-sm transition-colors hover:bg-white dark:bg-black/50"
       >
         <Heart

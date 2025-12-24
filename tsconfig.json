@@ -18,6 +18,7 @@
     "jsx": "react-jsx",
     "incremental": true,
     "baseUrl": ".",
+    "types": ["node", "jest"],
     "plugins": [
       {
         "name": "next"
@@ -36,7 +37,8 @@
     ".next/types/**/*.ts",
     "src/types/**/*.ts",
     "src/store/**/*.ts",
-    ".next/dev/types/**/*.ts"
+    ".next/dev/types/**/*.ts",
+    "src/store/useFavoriteStore.test.ts"
   ],
   "exclude": [
     "node_modules"

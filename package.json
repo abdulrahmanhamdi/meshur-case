@@ -11,6 +11,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "autoprefixer": "^10.4.23",
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.26",
     "lucide-react": "^0.562.0",
@@ -28,7 +29,8 @@
     "@storybook/addon-onboarding": "^10.1.10",
     "@storybook/addon-vitest": "^10.1.10",
     "@storybook/nextjs-vite": "^10.1.10",
-    "@tailwindcss/postcss": "^4",
+    "@tailwindcss/postcss": "^4.1.18",
+    "@types/jest": "^30.0.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
@@ -38,9 +40,11 @@
     "eslint": "^9",
     "eslint-config-next": "16.1.1",
     "eslint-plugin-storybook": "^10.1.10",
+    "jest": "^30.2.0",
     "playwright": "^1.57.0",
     "storybook": "^10.1.10",
     "tailwindcss": "^4",
+    "ts-jest": "^29.4.6",
     "typescript": "^5",
     "vite": "^7.3.0",
     "vitest": "^4.0.16"

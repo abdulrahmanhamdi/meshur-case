@@ -43,5 +43,12 @@
     "salesContract": "Sales Contract",
     "downloadApp": "Download the App",
     "allRightsReserved": "All Rights Reserved."
+  },
+  "errors": {
+  "notFoundTitle": "Page Not Found",
+  "notFoundDescription": "The page you are looking for does not exist or has been moved.",
+  "backToHome": "Back to Home",
+  "errorTitle": "Something went wrong!",
+  "tryAgain": "Try Again"
   }
 }

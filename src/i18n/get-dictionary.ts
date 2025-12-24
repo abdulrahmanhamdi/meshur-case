@@ -3,6 +3,10 @@ const dictionaries = {
   tr: () => import('./tr.json').then((module) => module.default),
 };
 
-export const getDictionary = async (locale: string) => {
-  return locale === 'en' ? dictionaries.en() : dictionaries.tr();
+export type Dictionary = typeof import('./tr.json');
+export type Locale = keyof typeof dictionaries; 
+
+export const getDictionary = async (locale: string): Promise<Dictionary> => {
+  const selectedLocale = (dictionaries[locale as Locale] ? locale : 'tr') as Locale;
+  return dictionaries[selectedLocale]();
 };

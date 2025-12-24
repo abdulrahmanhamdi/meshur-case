@@ -43,5 +43,12 @@
     "salesContract": "Satış Sözleşmesi",
     "downloadApp": "Uygulamayı İndir",
     "allRightsReserved": "Tüm Hakları Saklıdır."
+  },
+    "errors": {
+    "notFoundTitle": "Sayfa Bulunamadı",
+    "notFoundDescription": "Aradığınız sayfa mevcut değil veya taşınmış olabilir.",
+    "backToHome": "Ana Sayfaya Dön",
+    "errorTitle": "Bir şeyler yanlış gitti!",
+    "tryAgain": "Tekrar Dene"
   }
 }
